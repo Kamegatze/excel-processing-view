@@ -1,1 +1,8 @@
-<p (click)="check()">file works!</p>
+<div 
+    scrollDownDerective
+    (scrollDown)="onScroll()"
+    >
+    <div *ngFor="let file of (files$ | async)?.content;">
+        {{file.id + " " + file.name}}
+    </div>
+</div>

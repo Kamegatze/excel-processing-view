@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { FileService } from '../servicies/file/file.service';
+import { Page } from '../model/pages/page';
+import { File } from '../model//files/file';
 
 @Component({
   selector: 'app-file',
@@ -9,15 +11,29 @@ import { FileService } from '../servicies/file/file.service';
 })
 export class FileComponent implements OnInit{
 
-  protected files !: Observable<object>;
+  public files$ !: Observable<Page<File>>;
 
+  private pageSize = 50;
+
+  private pageNumber = 0;
+ 
   constructor(private fileService: FileService) {}
 
   ngOnInit() : void {
-    this.files = this.fileService.handlerGetFileAll();
+    this.files$ = this.fileService.handlerGetFileAll(this.pageNumber, this.pageSize);
   }
 
-  check() : void {
-    this.files.subscribe((item) => console.log(item));
+  onScroll() {
+    this.files$.subscribe(pageCurrent => {
+        if(pageCurrent.currentPage + 1 < pageCurrent.countPage) {
+            this.fileService
+            .handlerGetFileAll(++this.pageNumber, this.pageSize)
+            .subscribe(pageNext => {
+                pageNext.content = [...pageCurrent.content, ...pageNext.content]
+                this.files$ = of<Page<File>>(pageNext);
+                
+            })
+        }
+    });
   }
 }
