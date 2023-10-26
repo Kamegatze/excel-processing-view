@@ -1,9 +1,22 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Page } from 'src/app/model/pages/page';
+import { ServiceMany } from '../service-many';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SheetsService {
+export class SheetsService implements ServiceMany {
 
-  constructor() { }
+    constructor() { }
+
+    handlerGetItemsByForeignKey(foreignKey: number, pageNumber : number, pageSize : number): Observable<Page<any>> {
+        throw new Error('Method not implemented.');
+    }
+    handlerGetItemsAll(pageNumber: number, pageSize: number): Observable<Page<any>> {
+        throw new Error('Method not implemented.');
+    }
+    handlerGetItemById(id: number): Observable<any> {
+        throw new Error('Method not implemented.');
+    }
 }

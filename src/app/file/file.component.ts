@@ -3,6 +3,9 @@ import { Observable, of } from 'rxjs';
 import { FileService } from '../servicies/file/file.service';
 import { Page } from '../model/pages/page';
 import { File } from '../model//files/file';
+import { ReturnStatement } from '@angular/compiler';
+import { ETypeData } from '../infinite-scroll/etype-data';
+import { ServiceMany } from '../servicies/service-many';
 
 @Component({
   selector: 'app-file',
@@ -11,29 +14,10 @@ import { File } from '../model//files/file';
 })
 export class FileComponent implements OnInit{
 
-  public files$ !: Observable<Page<File>>;
+    selectData = ETypeData.ALL_DATA;
 
-  private pageSize = 50;
+    ngOnInit(): void {
+    }
 
-  private pageNumber = 0;
- 
-  constructor(private fileService: FileService) {}
-
-  ngOnInit() : void {
-    this.files$ = this.fileService.handlerGetFileAll(this.pageNumber, this.pageSize);
-  }
-
-  onScroll() {
-    this.files$.subscribe(pageCurrent => {
-        if(pageCurrent.currentPage + 1 < pageCurrent.countPage) {
-            this.fileService
-            .handlerGetFileAll(++this.pageNumber, this.pageSize)
-            .subscribe(pageNext => {
-                pageNext.content = [...pageCurrent.content, ...pageNext.content]
-                this.files$ = of<Page<File>>(pageNext);
-                
-            })
-        }
-    });
-  }
+    constructor(protected fileService: FileService) {}
 }

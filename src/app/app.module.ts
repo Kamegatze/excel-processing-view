@@ -7,12 +7,14 @@ import { FileComponent } from './file/file.component';
 import {HttpClientModule} from '@angular/common/http'
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ScrollDownDirective } from './directives/scroll/scroll-down.directive';
+import { InfiniteScrollComponent } from './infinite-scroll/infinite-scroll.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FileComponent,
-    ScrollDownDirective
+    ScrollDownDirective,
+    InfiniteScrollComponent
   ],
   imports: [
     BrowserModule,
