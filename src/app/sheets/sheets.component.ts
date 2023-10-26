@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SheetsService } from '../servicies/sheets/sheets.service';
 import { ETypeData } from '../infinite-scroll/etype-data';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sheets',
