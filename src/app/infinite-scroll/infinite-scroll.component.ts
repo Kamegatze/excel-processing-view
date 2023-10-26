@@ -22,6 +22,8 @@ export class InfiniteScrollComponent implements OnInit {
 
     @Input() pageSize = 50;
 
+    @Input() isTable = false
+
     private pageNumber = 0; 
 
     items$ !: Observable<Page<any>>; 
