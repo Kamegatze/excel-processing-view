@@ -1,6 +1,6 @@
 <div 
-    scrollDownDerective
-    (scrollDown)="onScroll()">
+    infinite-scroll
+    (scrolled)="onScroll()">
     <div *ngFor="let item of (items$ | async)?.content">
         <ng-container *ngTemplateOutlet="template; context: {item:item}"></ng-container>
     </div>

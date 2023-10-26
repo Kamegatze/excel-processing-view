@@ -15,7 +15,6 @@ export class FileService implements Service{
   private readonly fileUrl = `${ServiceConfig.url}/file`;
 
   constructor(
-    private router: Router,
     private http: HttpClient,
   ) { }
 
