@@ -7,7 +7,9 @@ import { PeoplePassageComponent } from './people-passage/people-passage.componen
 const routes: Routes = [
   { path: '', component: FileComponent},
   {path: 'sheets/:fileId', component: SheetsComponent},
-  {path: 'sheets/people_passage/:sheetId', component:PeoplePassageComponent}
+  {path: 'sheets/people_passage/:sheetId', component:PeoplePassageComponent},
+  {path: 'people_passageAll', component: PeoplePassageComponent},
+  {path: 'sheetsAll', component: SheetsComponent}
 ];
 
 @NgModule({

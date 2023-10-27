@@ -10,7 +10,7 @@ import { PeoplePassageService } from '../servicies/people_passage/people-passage
 })
 export class PeoplePassageComponent implements OnInit {
 
-  selectData = ETypeData.DATA_BY_FOREIGN_KEY;
+  selectData !:ETypeData;
 
   foreignKey !: number;
 
@@ -20,6 +20,11 @@ export class PeoplePassageComponent implements OnInit {
     this.router.params
       .subscribe(url => {
         this.foreignKey = url['sheetId'];
+        if(this.foreignKey === undefined) {
+            this.selectData = ETypeData.ALL_DATA
+        } else {
+            this.selectData = ETypeData.DATA_BY_FOREIGN_KEY
+        }
       });
   }
 

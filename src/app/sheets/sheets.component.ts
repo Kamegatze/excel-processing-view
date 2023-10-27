@@ -12,7 +12,7 @@ export class SheetsComponent implements OnInit {
 
     foreignKey !: number;
 
-    selectData = ETypeData.DATA_BY_FOREIGN_KEY;
+    selectData !: ETypeData;
 
     constructor(
         protected sheetsService: SheetsService, 
@@ -22,6 +22,12 @@ export class SheetsComponent implements OnInit {
     ngOnInit(): void {
         this.router.params.subscribe(url => {
             this.foreignKey = url['fileId'];
+            console.log(this.foreignKey)
+            if(this.foreignKey === undefined) {
+                this.selectData = ETypeData.ALL_DATA;
+            } else {
+                this.selectData = ETypeData.DATA_BY_FOREIGN_KEY;
+            }
         })
     }
 }

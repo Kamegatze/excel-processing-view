@@ -19,7 +19,7 @@ export class SheetsService implements ServiceMany {
         return this.http.get<Page<Sheet>>(`${this.url}/byFile/${foreignKey}?pageNumber=${pageNumber}&pageSize=${pageSize}`);
     }
     handlerGetItemsAll(pageNumber: number, pageSize: number): Observable<Page<any>> {
-        return this.http.get<Page<Sheet>>(`${this.url}/all?pageNumber=${pageNumber}&pageSize=${pageSize}`);
+        return this.http.get<Page<Sheet>>(`${this.url}/all?pageNumber=${pageNumber}&pageSize${pageSize}`);
     }
     handlerGetItemById(id: number): Observable<any> {
         return this.http.get<Sheet>(`${this.url}/${id}`);
