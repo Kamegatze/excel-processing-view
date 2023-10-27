@@ -1,1 +1,18 @@
-<p (click)="check()">file works!</p>
+<div>
+    <app-infinite-scroll
+        [template]="fileItem"
+        [service]="fileService"
+        [selectData]="selectData"/>
+</div>
+
+<ng-template #fileItem let-item='item'>
+    <div class="card" [routerLink]="'./sheets/' + item.id">
+        <button>
+            <div class="card-body">
+                <div class="d-flex">
+                    <div class="file">{{item.name}}</div>
+                </div>
+            </div>
+        </button>
+    </div>
+</ng-template>
