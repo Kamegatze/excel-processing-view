@@ -9,10 +9,10 @@ import { ETypeData } from '../infinite-scroll/etype-data';
 })
 export class FileComponent implements OnInit{
 
-    selectData = ETypeData.ALL_DATA;
+  selectData = ETypeData.ALL_DATA;
 
-    ngOnInit(): void {
-    }
+  ngOnInit(): void {
+  }
 
-    constructor(protected fileService: FileService) {}
+  constructor(protected fileService: FileService) {}
 }

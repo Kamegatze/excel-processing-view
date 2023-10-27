@@ -1,20 +1,20 @@
 <div>
-    <app-infinite-scroll
-    [foreignKey]="foreignKey"
-    [selectData]="selectData"
-    [service]="sheetsService"
-    [template]="sheetTemplate"/>
+  <app-infinite-scroll
+  [foreignKey]="foreignKey"
+  [selectData]="selectData"
+  [service]="sheetsService"
+  [template]="sheetTemplate"/>
 </div>
 
 <ng-template #sheetTemplate let-item="item">
-    <div class="card" [routerLink]="'/sheets/people_passage/' + item.id">
-        <button>
-            <div class="card-body">
-                <div class="d-flex">
-                    <div class="file">{{item.title}}</div>
-                </div>
-            </div>
-        </button>
-    </div>
+  <div class="card" [routerLink]="'/sheets/people_passage/' + item.id">
+    <button>
+      <div class="card-body">
+        <div class="d-flex">
+          <div class="file">{{item.title}}</div>
+        </div>
+      </div>
+    </button>
+  </div>
 </ng-template>
 

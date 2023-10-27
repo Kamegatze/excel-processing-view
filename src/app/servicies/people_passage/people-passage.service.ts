@@ -11,17 +11,17 @@ import { PeoplePassage } from 'src/app/model/people_passage/people-passage';
 })
 export class PeoplePassageService implements ServiceMany{
 
-    private url = `${ServiceConfig.url}/people_passage`;
+  private url = `${ServiceConfig.url}/people_passage`;
 
-    constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-    handlerGetItemsByForeignKey(foreignKey: number, pageNumber : number, pageSize : number): Observable<Page<PeoplePassage>> {
-        return this.http.get<Page<PeoplePassage>>(`${this.url}/by_sheet/${foreignKey}?pageNumber=${pageNumber}&pageSize=${pageSize}`);
-    }
-    handlerGetItemsAll(pageNumber: number, pageSize: number): Observable<Page<PeoplePassage>> {
-        return this.http.get<Page<PeoplePassage>>(`${this.url}/all?pageNumber=${pageNumber}&pageSize${pageSize}`);
-    }
-    handlerGetItemById(id: number): Observable<PeoplePassage> {
-        return this.http.get<PeoplePassage>(`${this.url}/${id}`);
-    }
+  handlerGetItemsByForeignKey(foreignKey: number, pageNumber : number, pageSize : number): Observable<Page<PeoplePassage>> {
+    return this.http.get<Page<PeoplePassage>>(`${this.url}/by_sheet/${foreignKey}?pageNumber=${pageNumber}&pageSize=${pageSize}`);
+  }
+  handlerGetItemsAll(pageNumber: number, pageSize: number): Observable<Page<PeoplePassage>> {
+    return this.http.get<Page<PeoplePassage>>(`${this.url}/all?pageNumber=${pageNumber}&pageSize${pageSize}`);
+  }
+  handlerGetItemById(id: number): Observable<PeoplePassage> {
+    return this.http.get<PeoplePassage>(`${this.url}/${id}`);
+  }
 }

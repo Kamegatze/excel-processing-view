@@ -17,11 +17,11 @@ export class FileService implements Service{
     private http: HttpClient,
   ) { }
 
-    handlerGetItemsAll(pageNumber: number, pageSize: number): Observable<Page<File>> {
-        return this.http
-            .get<Page<File>>(`${this.fileUrl}/all?pageNumber=${pageNumber}&pageSize=${pageSize}`);
-    }
-    handlerGetItemById(id: number): Observable<File> {
-        return this.http.get<File>(`${this.fileUrl}/${id}`);
-    }
+  handlerGetItemsAll(pageNumber: number, pageSize: number): Observable<Page<File>> {
+    return this.http
+      .get<Page<File>>(`${this.fileUrl}/all?pageNumber=${pageNumber}&pageSize=${pageSize}`);
+  }
+  handlerGetItemById(id: number): Observable<File> {
+    return this.http.get<File>(`${this.fileUrl}/${id}`);
+  }
 }
