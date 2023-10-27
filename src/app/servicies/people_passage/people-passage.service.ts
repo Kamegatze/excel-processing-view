@@ -19,9 +19,9 @@ export class PeoplePassageService implements ServiceMany{
         return this.http.get<Page<PeoplePassage>>(`${this.url}/by_sheet/${foreignKey}?pageNumber=${pageNumber}&pageSize=${pageSize}`);
     }
     handlerGetItemsAll(pageNumber: number, pageSize: number): Observable<Page<PeoplePassage>> {
-        throw new Error('Method not implemented.');
+        return this.http.get<Page<PeoplePassage>>(`${this.url}/all?pageNumber=${pageNumber}&pageSize${pageSize}`);
     }
     handlerGetItemById(id: number): Observable<PeoplePassage> {
-        throw new Error('Method not implemented.');
+        return this.http.get<PeoplePassage>(`${this.url}/${id}`);
     }
 }

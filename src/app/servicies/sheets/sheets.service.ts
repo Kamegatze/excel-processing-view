@@ -19,9 +19,9 @@ export class SheetsService implements ServiceMany {
         return this.http.get<Page<Sheet>>(`${this.url}/byFile/${foreignKey}?pageNumber=${pageNumber}&pageSize=${pageSize}`);
     }
     handlerGetItemsAll(pageNumber: number, pageSize: number): Observable<Page<any>> {
-        throw new Error('Method not implemented.');
+        return this.http.get<Page<Sheet>>(`${this.url}/all?pageNumber=${pageNumber}&pageSize=${pageSize}`);
     }
     handlerGetItemById(id: number): Observable<any> {
-        throw new Error('Method not implemented.');
+        return this.http.get<Sheet>(`${this.url}/${id}`);
     }
 }
