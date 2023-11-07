@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
 import { FileService } from '../servicies/file/file.service';
-import { Page } from '../model/pages/page';
-import { File } from '../model//files/file';
-import { ReturnStatement } from '@angular/compiler';
 import { ETypeData } from '../infinite-scroll/etype-data';
-import { ServiceMany } from '../servicies/service-many';
 
 @Component({
   selector: 'app-file',
@@ -14,10 +9,10 @@ import { ServiceMany } from '../servicies/service-many';
 })
 export class FileComponent implements OnInit{
 
-    selectData = ETypeData.ALL_DATA;
+  selectData = ETypeData.ALL_DATA;
 
-    ngOnInit(): void {
-    }
+  ngOnInit(): void {
+  }
 
-    constructor(protected fileService: FileService) {}
+  constructor(protected fileService: FileService) {}
 }

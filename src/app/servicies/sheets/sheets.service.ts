@@ -11,17 +11,17 @@ import { Sheet } from 'src/app/model/sheet/sheet';
 })
 export class SheetsService implements ServiceMany {
 
-    private url = `${ServiceConfig.url}/sheet`
+  private url = `${ServiceConfig.url}/sheet`
 
-    constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-    handlerGetItemsByForeignKey(foreignKey: number, pageNumber : number, pageSize : number): Observable<Page<Sheet>> {
-        return this.http.get<Page<Sheet>>(`${this.url}/byFile/${foreignKey}?pageNumber=${pageNumber}&pageSize=${pageSize}`);
-    }
-    handlerGetItemsAll(pageNumber: number, pageSize: number): Observable<Page<any>> {
-        throw new Error('Method not implemented.');
-    }
-    handlerGetItemById(id: number): Observable<any> {
-        throw new Error('Method not implemented.');
-    }
+  handlerGetItemsByForeignKey(foreignKey: number, pageNumber : number, pageSize : number): Observable<Page<Sheet>> {
+    return this.http.get<Page<Sheet>>(`${this.url}/byFile/${foreignKey}?pageNumber=${pageNumber}&pageSize=${pageSize}`);
+  }
+  handlerGetItemsAll(pageNumber: number, pageSize: number): Observable<Page<any>> {
+    return this.http.get<Page<Sheet>>(`${this.url}/all?pageNumber=${pageNumber}&pageSize${pageSize}`);
+  }
+  handlerGetItemById(id: number): Observable<any> {
+    return this.http.get<Sheet>(`${this.url}/${id}`);
+  }
 }

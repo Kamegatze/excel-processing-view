@@ -4,6 +4,6 @@ import { Service } from "./service";
 
 export interface ServiceMany extends Service {
 
-    handlerGetItemsByForeignKey(foreignKey: number, pageNumber : number, pageSize : number): Observable<Page<any>>
+  handlerGetItemsByForeignKey(foreignKey: number, pageNumber : number, pageSize : number): Observable<Page<any>>
 
 }

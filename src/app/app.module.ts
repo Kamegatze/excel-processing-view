@@ -10,6 +10,7 @@ import { InfiniteScrollComponent } from './infinite-scroll/infinite-scroll.compo
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SheetsComponent } from './sheets/sheets.component';
+import { PeoplePassageComponent } from './people-passage/people-passage.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SheetsComponent } from './sheets/sheets.component';
     InfiniteScrollComponent,
     HeaderComponent,
     FooterComponent,
-    SheetsComponent
+    SheetsComponent,
+    PeoplePassageComponent
   ],
   imports: [
     BrowserModule,

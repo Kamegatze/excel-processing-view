@@ -1,7 +1,14 @@
 <div 
-    infinite-scroll
-    (scrolled)="onScroll()">
+  infinite-scroll
+  (scrolled)="onScroll()">
+  <ng-container *ngIf="isTable">
+      <ng-container *ngTemplateOutlet="template; context: {items: (items$ | async)?.content}"/>
+  </ng-container>
+    
+    
+  <ng-container *ngIf="!isTable">
     <div *ngFor="let item of (items$ | async)?.content">
-        <ng-container *ngTemplateOutlet="template; context: {item:item}"></ng-container>
+      <ng-container *ngTemplateOutlet="template; context: {item:item}"/>
     </div>
+  </ng-container>  
 </div>

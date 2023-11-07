@@ -1,0 +1,35 @@
+<div>
+  <app-infinite-scroll
+  [foreignKey]="foreignKey"
+  [service]="service"
+  [selectData]="selectData"
+  [template]="peoplePassageTemplate"
+  [isTable]="true"/>
+</div>
+
+<ng-template #peoplePassageTemplate let-items="items">
+  <table class="table table-striped table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Фимилие</th>
+        <th scope="col">Имя</th>
+        <th scope="col">Отчество</th>
+        <th scope="col">Возраст</th>
+        <th scope="col">Действие</th>
+        <th scope="col">Время действия</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items; index as i">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{item.last_name}}</td>
+        <td>{{item.first_name}}</td>
+        <td>{{item.patronymic}}</td>
+        <td>{{item.age}}</td>
+        <td>{{item.action}}</td>
+        <td>{{item.timeAction}}</td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>
